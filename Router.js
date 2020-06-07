@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 class Router {
     
@@ -35,11 +35,8 @@ class Router {
                     return;
                 } else if(data && data.length === 0) {
                     let hashPswd = password_confirmation;
-                    const bcrypt = require('bcrypt');
 
-                    let pswd = bcrypt.hashSync(password_confirmation, 9);
-
-
+                    let pswd = password_confirmation;
 
                     let values = [
                         [null, username, pswd]
@@ -48,6 +45,7 @@ class Router {
                     db.query('INSERT INTO `user` (`id`, `username`, `password`) VALUES ?', [values], (err, data, fields) => {
                         if(err) {
                             console.log('Register error');
+                            console.log(err)
                         } else {
                             res.json({
                                 success: true,
