@@ -14,7 +14,7 @@ console.log('Testing server');
 //Database
 
 const db = mysql.createConnection({
-    host: 'hs8.linux.pl',
+    host: 'localhost',
     user: 'rustoran_info',
     password: 'pastylka11',
     database: 'rustoran_musictome'
